@@ -62,8 +62,9 @@ evaluate()
 cleanup_gpu()
 
 # 2. mt-bench evaluation
-mtbench_evaluate()
-cleanup_gpu()
+if cfg.mtbench.enable:
+    mtbench_evaluate()
+    cleanup_gpu()
 
 # Logging results to W&B
 if cfg.wandb.log and run is not None:
